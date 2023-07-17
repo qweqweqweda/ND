@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AKM
   m_EditorClassIdentifier: 
   ItemType: 3
-  BulletType: 7
-  ShellType: 8
+  BulletType: 10
+  ShellType: 11
   Ammo: 30
   Damage: 70
   FireTime: 0.1

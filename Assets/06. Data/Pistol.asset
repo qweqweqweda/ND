@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   ItemType: 0
-  BulletType: 2
-  ShellType: 3
+  BulletType: 5
+  ShellType: 6
   Ammo: 12
   Damage: 70
   FireTime: 0.5

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrossBow
   m_EditorClassIdentifier: 
   ItemType: 1
-  BulletType: 4
-  ShellType: 0
+  BulletType: 7
+  ShellType: 7
   Ammo: 10
   Damage: 100
   FireTime: 1.5

@@ -175,7 +175,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!65 &7395352879462720295
 BoxCollider:
@@ -203,10 +203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieData: {fileID: 11400000, guid: cb472d89a1069e9459f585eee41817ef, type: 2}
-  box: {fileID: 1052300880}
+  box: {fileID: 1052300878}
   maxHealth: 0
   health: 0
-  speed: 0
 --- !u!1 &7395352878580908690
 GameObject:
   m_ObjectHideFlags: 0

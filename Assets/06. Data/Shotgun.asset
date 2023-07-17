@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   ItemType: 2
-  BulletType: 5
-  ShellType: 6
+  BulletType: 8
+  ShellType: 9
   Ammo: 10
   Damage: 20
   FireTime: 1.5

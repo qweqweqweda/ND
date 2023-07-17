@@ -828,6 +828,64 @@ Transform:
   m_Father: {fileID: 7234408004320411168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3413986703600677992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5556621759068303417}
+  - component: {fileID: 2046518815487963349}
+  - component: {fileID: 1174409352}
+  m_Layer: 8
+  m_Name: AttackBox
+  m_TagString: ATTACK
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5556621759068303417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413986703600677992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.37, z: 0.508}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7907873873573790845}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2046518815487963349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413986703600677992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.1329098, z: 0.4}
+  m_Center: {x: 0, y: 0.5664532, z: 0}
+--- !u!114 &1174409352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413986703600677992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633a597034b849c449494bb4babf2854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3482355115124695514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,7 +2012,7 @@ GameObject:
   - component: {fileID: 7652970497903983671}
   - component: {fileID: 7652970497903983668}
   - component: {fileID: 7652970497903983666}
-  - component: {fileID: 7652970497903983670}
+  - component: {fileID: 797271490}
   m_Layer: 7
   m_Name: Boss Zombie
   m_TagString: ZOMBIE
@@ -1977,6 +2035,7 @@ Transform:
   - {fileID: 2444957271876904169}
   - {fileID: 1140189357512280906}
   - {fileID: 7652970497205911756}
+  - {fileID: 5556621759068303417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -176.485, z: 0}
@@ -1994,7 +2053,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!65 &7652970497903983668
 BoxCollider:
@@ -2030,7 +2089,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7652970497903983670
+--- !u!114 &797271490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2039,14 +2098,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7419040261755707079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d23ee346df96cb408ea0289fb08a7eb, type: 3}
+  m_Script: {fileID: 11500000, guid: b48d575709646934aba9f8524e525432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zombieData: {fileID: 11400000, guid: e748d8e5a0cdf9e4ab0f26fa3f014310, type: 2}
-  box: {fileID: 0}
   maxHealth: 0
   health: 0
-  speed: 0
 --- !u!1 &7506359720434819536
 GameObject:
   m_ObjectHideFlags: 0
