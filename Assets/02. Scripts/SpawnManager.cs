@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnManager : MonoBehaviour
+{
+    public Transform ObjectSpawner; // 스포너의 위치
+
+    float randomX; //랜덤 x좌표를 설정하기 위한 난수
+    Vector3 randomPosition; // 랜덤 x좌표
+
+    public float spawnTime;
+
+    GameManager gameManager;
+
+    int poolIndex; // 소환할 오브젝트풀 인덱스
+
+    void Start()
+    {
+        gameManager=GameManager.instance;
+        spawnTime = 0.5f;
+
+        StartCoroutine(SpawnObject());
+    }
+
+    IEnumerator SpawnObject()
+    {
+        while (true)
+        {
+            randomX = Random.Range(-15f, 15f); // 오브젝트 소환할 x좌표 범위
+            randomPosition = ObjectSpawner.position + Vector3.right * randomX; // 오브젝트 소환할 위치
+
+            poolIndex = Random.Range(6, 9); //임시  6 - 좀비 , 7 - 장애물
+
+
+            GameObject currObject = gameManager.poolManager.GetPools(poolIndex);
+
+            currObject.transform.position = randomPosition; // 소환위치 
+            currObject.transform.parent = gameManager.map.transform; // map의 자식으로
+
+            yield return new WaitForSeconds(spawnTime);
+        }
+
+
+    }
+}
+
+
+
