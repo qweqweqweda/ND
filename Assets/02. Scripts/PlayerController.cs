@@ -1,0 +1,82 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    //플레이어 움직이는 속도
+    public float playerSpeed=10f;
+    public bool testMode=true;
+
+    //플레이어 넘어지는 속도
+    public float fallDuration = 1f; // 1초에 걸쳐서 넘어짐
+    float fallingTime = 0f;
+
+    bool isCollide=false;
+
+    Quaternion startRotation;
+    Quaternion targetRotation= Quaternion.Euler(0f, 180f, 90f); //넘어질 각도
+    
+    
+    Rigidbody rb;
+    Transform tr;
+
+    void Start()
+    {
+        rb= GetComponent<Rigidbody>();
+        tr=GetComponent<Transform>();
+        startRotation = tr.rotation;
+    }
+
+
+    void Update()
+    {
+        // 카메라의 월드 좌표 기준으로 마우스 포인터의 위치를 변환합니다.
+        Vector3 pos = Input.mousePosition;
+        pos.z = Camera.main.farClipPlane;
+        gunPoint = Camera.main.ScreenToWorldPoint(pos);
+        
+        if (isCollide)
+        {
+            fallingTime += Time.deltaTime;
+            float t = Mathf.Clamp01(fallingTime / fallDuration);
+            tr.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+
+        }
+
+        if (GameManager.instance.isGameOver) return;
+
+        float xInput = Input.GetAxisRaw("Horizontal");
+        if (testMode) // 테스트 위해 조종 가능 모드
+        {
+            float zInput = Input.GetAxisRaw("Vertical");
+            Vector3 testVelocity = new Vector3(xInput * 10f, 0f, zInput*10f);
+            rb.velocity = testVelocity;
+            return;
+        }
+
+        Vector3 newVelocity = new Vector3(xInput*10f, 0f, playerSpeed);
+        rb.velocity = newVelocity;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ZOMBIE"))
+        {
+            IDamage damage = collision.collider.GetComponent<IDamage>();
+            if (damage != null)
+            {
+                damage.GetDamage(100);
+            }
+        }
+        else if (collision.gameObject.CompareTag("OBSTACLE"))
+        {
+            isCollide = true;
+            GameManager.instance.GameOver();
+
+        }
+
+    }
+
+    public Vector3 gunPoint;
+}
